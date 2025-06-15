@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Health Risk - Features</title>
+  <link rel="stylesheet" href="Healthcare.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="Code_Breakers.jpg" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f4f7fb;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    header {
+      background-color: #0077cc;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #ffd700;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    .theme-icon {
+      width: 24px;
+      height: 24px;
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #0077cc;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+      nav.active {
+        display: flex;
+      }
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      color: #0077cc;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .feature-section {
+      background: #fff;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    .feature-section:hover {
+      transform: rotateY(12deg) rotateX(6deg) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+    .feature-section h2 {
+      font-size: 1.4rem;
+      color: #005fa3;
+      margin-bottom: 0.5rem;
+    }
+    .feature-section p {
+      margin: 0.5rem 0 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    footer {
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AI <span>Health</span> Risk</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="features.html">Features</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" class="theme-icon" id="themeIcon" alt="Theme Icon">
+    </button>
+  </header>
+
+  <main>
+    <h1>Core Features of Our AI Health Risk Platform</h1>
+    <p>Discover the advanced capabilities that make our platform stand out in providing personalized and intelligent health risk insights powered by AI.</p>
+
+    <div class="features-grid">
+      <div class="feature-section">
+        <h2>Personalized Risk Reports</h2>
+        <p>Tailor-made assessments based on your individual symptoms, age, gender, and medical history to provide the most accurate results.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Instant AI-Powered Diagnosis</h2>
+        <p>Receive real-time, evidence-based suggestions within seconds using advanced machine learning and medical datasets.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Symptom Intelligence Engine</h2>
+        <p>Analyze multiple symptoms simultaneously and get guided insights on potential conditions, severity, and urgency.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Lifestyle & Wellness Guidance</h2>
+        <p>Get AI-driven health improvement tips like diet recommendations, physical activity, and preventive care suggestions.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Data Security & Privacy</h2>
+        <p>We follow strict data handling policies and use encryption protocols to keep your personal health information safe and secure.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Cross-Platform Accessibility</h2>
+        <p>Accessible from mobile, tablet, and desktop devices with a seamless and responsive user experience anywhere, anytime.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Clinical Accuracy & Transparency</h2>
+        <p>AI models are trained on verified clinical guidelines and constantly updated to align with the latest health standards.</p>
+      </div>
+      <div class="feature-section">
+        <h2>Multi-Language Support</h2>
+        <p>Breaking language barriers, our platform supports various regional and global languages to reach everyone equally.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AI Health Risk Assessment | Designed by Code Breakers | Contact: +91 6388272238 | amanpalsingh26266@gmail.com </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("active");
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById("themeIcon");
+      body.classList.toggle("dark-mode");
+      if (body.classList.contains("dark-mode")) {
+        icon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png";
+      } else {
+        icon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+      }
+    }
+  </script>
+</body>
+</html>

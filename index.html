@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="Code_Breakers.jpg" type="image/x-icon">
+  <title>AI Health Risk Assessment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="Healthcare.css">
+</head>
+<body>
+  <header>
+    <div class="logo">AI <span>Health</span> Risk</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="top-nav" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="features.html">Features</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" class="theme-icon" id="themeIcon" alt="Theme Icon">
+    </button>
+  </header>
+
+  <div class="slider-container" id="sliderContainer">
+    <div class="slider" id="slider">
+      <div class="slide" style="background-image: url('https://t3.ftcdn.net/jpg/06/77/47/34/360_F_677473412_5nGHAc090QJg051rLqge2kehXgPgU6M8.jpg');"></div>
+      <div class="slide" style="background-image: url('https://th.bing.com/th/id/R.45c95856cfa7044f2e2701e04c50b20a?rik=Ppn95RsBxEY%2f5A&riu=http%3a%2f%2fwww.empowerasupportcoordination.com.au%2fwp-content%2fuploads%2f2022%2f02%2fhappy-patient-and-caregiver-VA84DV7-1-1.jpg&ehk=HZJQR%2bHxmt%2bRSDDcvWkKpkeauGtW6puQ85rYZ9Mtwz0%3d&risl=&pid=ImgRaw&r=0');"></div>
+      <div class="slide" style="background-image: url('https://www.verywellhealth.com/thmb/CGcSSMzWLdk01zeVwqT1-A0vBBM=/5121x3414/filters:fill(87E3EF,1)/doctors-talking-to-patient-in-hospital-icu-493216255-583452e15f9b58d5b1b967c7.jpg');"></div>
+    </div>
+    <div class="slider-buttons">
+      <button onclick="prevSlide()">❮</button>
+      <button onclick="nextSlide()">❯</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <main class="main-content">
+    <h1>AI-Driven Health Risk Assessment</h1>
+    <p>Enter your symptoms and medical history below, and get personalized health risk analysis and recommendations powered by AI algorithms.</p>
+
+    <div class="form-card">
+      <form id="healthForm">
+        <label for="age">Age</label>
+        <input type="number" id="age" required />
+
+        <label for="gender">Gender</label>
+        <select id="gender" required>
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="heartRate">Resting Heart Rate</label>
+        <input type="number" id="heartRate" />
+
+        <label for="height">Height (in cm)</label>
+        <input type="number" id="height" />
+
+        <label for="weight">Weight (in kg)</label>
+        <input type="number" id="weight" />
+
+        <label for="history">Medical History</label>
+        <textarea id="history"></textarea>
+
+        <label for="symptoms">Symptoms</label>
+        <textarea id="symptoms" required></textarea>
+
+        <button type="submit">Analyze</button>
+        <button type="reset">Reset</button>
+      </form>
+      <div id="resultBox"></div>
+    </div>
+  </main>
+
+  <section class="info-section">
+    <h2>How It Works</h2>
+    <p>Our AI system analyzes the symptoms and medical history you provide using advanced machine learning algorithms trained on medical datasets and clinical guidelines.</p>
+    <ul>
+      <li><strong>Step 1:</strong> You provide detailed symptoms and relevant medical history.</li>
+      <li><strong>Step 2:</strong> The AI engine evaluates potential health risks based on your inputs and demographics.</li>
+      <li><strong>Step 3:</strong> Receive tailored recommendations including possible next steps, urgencies, and lifestyle suggestions.</li>
+      <li><strong>Step 4:</strong> Track your progress over time with periodic reassessments.</li>
+    </ul>
+    <h3>FAQs and Resources</h3>
+    <ul>
+      <li><a href="https://www.who.int/emergencies" target="_blank">WHO - Health Emergencies</a></li>
+      <li><a href="https://www.cdc.gov/symptoms" target="_blank">CDC - Symptoms</a></li>
+      <li><a href="#">Health Condition Library</a></li>
+    </ul>
+  </section>
+
+  <section class="info-section">
+    <h2>Why Choose Our AI Health Assessment?</h2>
+    <ul>
+      <li><strong>Personalized Analysis:</strong> Tailored results based on your unique health profile.</li>
+      <li><strong>Data Privacy:</strong> We prioritize and protect your personal health information.</li>
+      <li><strong>Fast and Accurate:</strong> Receive instant results powered by cutting-edge AI.</li>
+      <li><strong>Evidence-Based:</strong> Recommendations aligned with medical research and best practices.</li>
+      <li><strong>Free Access:</strong> No sign-up needed. Use instantly from anywhere.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AI Health Risk Assessment | Designed by Code Breakers | Contact: +91 6388272238 | amanpalsingh26266@gmail.com </p>
+  </footer>
+
+  <script>
+    const slider = document.getElementById('slider');
+const dotsContainer = document.getElementById('dots');
+const slides = document.querySelectorAll('.slide');
+let slideIndex = 0;
+let interval;
+
+function createDots() {
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.onclick = () => {
+      slideIndex = i;
+      showSlide(slideIndex);
+    };
+    dotsContainer.appendChild(dot);
+  });
+}
+
+function updateDots() {
+  document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+  document.querySelectorAll('.dot')[slideIndex].classList.add('active');
+}
+
+function showSlide(index) {
+  if (index >= slides.length) slideIndex = 0;
+  if (index < 0) slideIndex = slides.length - 1;
+  slider.style.transform = `translateX(${-slideIndex * 100}%)`;
+  updateDots();
+}
+
+function nextSlide() {
+  slideIndex++;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex--;
+  showSlide(slideIndex);
+}
+
+function startAutoSlide() {
+  interval = setInterval(() => nextSlide(), 4000);
+}
+
+function stopAutoSlide() {
+  clearInterval(interval);
+}
+
+document.getElementById('sliderContainer').addEventListener('mouseenter', stopAutoSlide);
+document.getElementById('sliderContainer').addEventListener('mouseleave', startAutoSlide);
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+slider.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+slider.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  if (touchEndX < touchStartX - 50) nextSlide();
+  if (touchEndX > touchStartX + 50) prevSlide();
+});
+
+createDots();
+startAutoSlide();
+
+function toggleTheme() {
+  const body = document.body;
+  body.classList.toggle("dark-mode");
+  const icon = document.getElementById("themeIcon");
+  if (body.classList.contains("dark-mode")) {
+    icon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png";
+  } else {
+    icon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+  }
+}
+
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
+
+document.getElementById("healthForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const resultDiv = document.getElementById("resultBox");
+  resultDiv.innerHTML = "Processing... Please wait.";
+  resultDiv.style.display = "block";
+
+  const data = {
+    age: document.getElementById("age").value,
+    gender: document.getElementById("gender").value,
+    heartRate: document.getElementById("heartRate").value,
+    height: document.getElementById("height").value,
+    weight: document.getElementById("weight").value,
+    history: document.getElementById("history").value,
+    symptoms: document.getElementById("symptoms").value
+  };
+
+  try {
+    const response = await fetch("http://127.0.0.1:5000/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (result.analysis) {
+      resultDiv.innerHTML = `<h3>AI Health Analysis:</h3><p>${result.analysis}</p>`;
+    } else {
+      resultDiv.innerHTML = `<h3>Error:</h3><p>${result.error || "Something went wrong."}</p>`;
+    }
+  } catch (err) {
+    resultDiv.innerHTML = `<h3>Connection Error</h3><p>Unable to connect to the backend.</p>`;
+  }
+});
+
+  </script>
+</body>
+</html>

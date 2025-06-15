@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="Code_Breakers.jpg" type="image/x-icon">
+  <title>About | AI Health Risk Assessment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+      transition: background-color 0.5s, color 0.5s;
+    }
+    body.dark-mode {
+      background-color: #1c1c1c;
+      color: #f1f1f1;
+    }
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo span {
+      color: yellow;
+    }
+    nav.top-nav a {
+      margin: 0 1rem;
+      color: white;
+      text-decoration: none;
+    }
+    nav.top-nav a:hover {
+      color: yellow;
+    }
+    .theme-toggle {
+      background: #000;
+      color: white;
+      border: 2px solid white;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .theme-toggle:hover {
+      background: white;
+      color: #222;
+      border: 2px solid #222;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .sidebar {
+      width: 100%;
+      max-width: 250px;
+      background: #f0f0f0;
+      padding: 1rem;
+      transition: background 0.5s;
+    }
+    .dark-mode .sidebar {
+      background: #1e1e1e;
+    }
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+    }
+    .about-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: background 0.5s, color 0.5s;
+    }
+    .dark-mode .about-card {
+      background: #333;
+      color: white;
+    }
+    footer {
+      background: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .theme-icon {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AI <span>Health</span> Risk</div>
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="features.html">Features</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" id="themeIcon" class="theme-icon" alt="Theme Icon" />
+    </button>
+  </header>
+
+    <main class="main-content">
+      <div class="about-card">
+        <h1>About the AI Health Risk Assessment</h1>
+        <p>
+          AI Health Risk Assessment is an innovative web application that utilizes artificial intelligence to analyze symptoms and medical history, providing users with early insights into potential health conditions.
+        </p>
+        <h2>Our Mission</h2>
+        <p>
+          We aim to democratize health analysis by offering accessible, intelligent, and secure tools to aid in early health risk detection and management.
+        </p>
+        <h2>Technology Stack</h2>
+        <ul>
+          <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Backend:</strong> Python with Flask</li>
+          <li><strong>AI Engine:</strong> Gemini API integrated with ML models trained on health datasets</li>
+        </ul>
+        <h2>Meet the Team</h2>
+        <ul>
+          <li><strong>Akshat Vishwakarma</strong> – Backend Architect and AI Integration Specialist</li>
+          <li><strong>Aman Pal</strong> – Team Leader and Frontend Developer</li>
+          <li><strong>Adarsh Srivastava</strong> – UI/UX Designer and Documentation Lead</li>
+          <li><strong>Aditya Chandra</strong> – Data Handling & API Integration Expert</li>
+          <li><strong>Aditya Jaiswal</strong> – Testing & Deployment Coordinator</li>
+        </ul>
+        <p>
+          For collaboration or queries, reach out at <a href="mailto:amanpalsingh26266@gmail.com">amanpalsingh26266@gmail.com</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AI Health Risk Assessment | Designed by Code Breakers | Contact: +91 6388272238 | amanpalsingh26266@gmail.com </p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle("dark-mode");
+      const icon = document.getElementById("themeIcon");
+      if (body.classList.contains("dark-mode")) {
+        icon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png"; // moon
+      } else {
+        icon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png"; // sun
+      }
+    }
+  </script>
+</body>
+</html>
